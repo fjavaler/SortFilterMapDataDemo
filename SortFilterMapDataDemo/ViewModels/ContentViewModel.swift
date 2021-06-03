@@ -57,6 +57,6 @@ class ContentViewModel: ObservableObject {
       return user1.points > user2.points
     }
     
-    filteredArray = users.sorted(by: {$0.points > $1.points})
+    filteredUsers = users.sorted(by: {$0.points > $1.points})
   }
 }
