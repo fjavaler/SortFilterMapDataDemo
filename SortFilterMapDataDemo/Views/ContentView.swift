@@ -19,39 +19,45 @@ struct ContentView: View {
       
       VStack(spacing: 20) {
         
-        ForEach(viewModel.filteredUsers) { user in
-          
-          VStack(alignment: .leading) {
-            
-            Text(user.name)
-              .font(.headline)
-            
-            HStack {
-              
-              Text("Points: \(user.points)")
-              
-              Spacer()
-              
-              if user.isVerified {
-                Image(systemName: "flame.fill")
-              }
-            
-            }//: HStack
-          
-          }//: VStack
-          .foregroundColor(.white)
-          .padding()
-          .background(Color.blue.cornerRadius(10))
-          .padding(.horizontal)
+        ForEach(viewModel.mappedUsers, id: \.self, content: { name in
+          Text(name)
+            .font(.title)
+        })
         
-        }//: ForEach
-      
+//        Uncommented for mapping to work
+        //        ForEach(viewModel.filteredUsers) { user in
+        //
+        //          VStack(alignment: .leading) {
+        //
+        //            Text(user.name)
+        //              .font(.headline)
+        //
+        //            HStack {
+        //
+        //              Text("Points: \(user.points)")
+        //
+        //              Spacer()
+        //
+        //              if user.isVerified {
+        //                Image(systemName: "flame.fill")
+        //              }
+        //
+        //            }//: HStack
+        //
+        //          }//: VStack
+        //          .foregroundColor(.white)
+        //          .padding()
+        //          .background(Color.blue.cornerRadius(10))
+        //          .padding(.horizontal)
+        //
+        //        }//: ForEach
+        
       }//: VStack
-    
+      
     }//: ScrollView
-  
+    
   }//: Body
-
+  
 }//: View
 
 // MARK: Preview

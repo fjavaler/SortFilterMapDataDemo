@@ -11,6 +11,7 @@ class ContentViewModel: ObservableObject {
   
   @Published var users: [UserModel] = []
   @Published var filteredUsers: [UserModel] = []
+  @Published var mappedUsers: [String] = []
   
   // MARK: Init
   init() {
@@ -50,13 +51,47 @@ class ContentViewModel: ObservableObject {
       1. Sort
       2. Filter
       3. Map
+     Uncomment one block below.
      */
     
-    // 1. Sort (by points, e.g.)
-    filteredUsers = users.sorted { user1, user2 in
-      return user1.points > user2.points
-    }
     
-    filteredUsers = users.sorted(by: {$0.points > $1.points})
+    // 1. Sort (by points, e.g.)
+    /*
+//    filteredUsers = users.sorted { user1, user2 in
+//      return user1.points > user2.points
+//    }
+    
+    // ...Or, alternate, shorthand, version
+//    filteredUsers = users.sorted(by: {$0.points > $1.points})
+    */
+    
+    // 2. Filter
+    /*
+    filteredUsers = users.filter({ user in
+      return user.points > 50
+      //return user.name.contains("i")
+    })
+    
+    // Shorthand
+//    filteredUsers = users.filter({ $0.points > 50 })
+     */
+    
+    // 3. Map
+    /*
+    mappedUsers = users.map({ user in
+      return user.name
+    })
+    
+    // Shorthand
+//    mappedUsers = users.map({ $0.name })
+     */
+    
+    /*
+     Finally, these sorts, filters, and maps, can be chained for complex outcomes.
+     */
+    mappedUsers = users
+      .sorted(by: { $0.points > $1.points })
+      .filter({ $0.isVerified })
+      .map({ $0.name })
   }
 }

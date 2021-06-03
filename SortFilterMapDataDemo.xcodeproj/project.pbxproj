@@ -56,10 +56,10 @@
 		F814E26226685C5800C35808 /* SortFilterMapDataDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F814E26326685C5800C35808 /* SortFilterMapDataDemoApp.swift */,
 				F814E27826685D0900C35808 /* Views */,
 				F814E27526685CCB00C35808 /* ViewModels */,
 				F814E27226685C7000C35808 /* Models */,
-				F814E26326685C5800C35808 /* SortFilterMapDataDemoApp.swift */,
 				F814E26726685C5900C35808 /* Assets.xcassets */,
 				F814E26C26685C5900C35808 /* Info.plist */,
 				F814E26926685C5900C35808 /* Preview Content */,
